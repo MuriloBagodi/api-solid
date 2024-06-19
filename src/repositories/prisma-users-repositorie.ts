@@ -9,4 +9,13 @@ export class PrismaUsersRepositories {
 
     return user
   }
+
+  async searchEmail(email: string) {
+    const user = await prisma.user.findUnique({ where: { email } })
+
+    if (user) {
+      console.log(user)
+      throw new Error('Email already exist !')
+    }
+  }
 }

@@ -1,5 +1,3 @@
-import { PrismaUsersRepositories } from '@/repositories/prisma-users-repositorie'
-import { prisma } from '@/lib/prisma/prisma'
 import { passwordHash } from '@/middleware/passwordHandler'
 
 interface RegisterUseCaseRequest {
@@ -8,22 +6,16 @@ interface RegisterUseCaseRequest {
   password: string
 }
 
-export async function registerUseCase({
-  name,
-  email,
-  password,
-}: RegisterUseCaseRequest) {
-  const user = await prisma.user.findUnique({ where: { email } })
+export class RegisterUseCase {
+  // eslint-disable-next-line no-useless-constructor, @typescript-eslint/no-explicit-any
+  constructor(private usersRepository: any) {}
 
-  if (user) {
-    throw new Error('Email already exist !')
+  async execute({ name, email, password }: RegisterUseCaseRequest) {
+    await this.usersRepository.searchEmail(email)
+    await this.usersRepository.create({
+      name,
+      email,
+      password: await passwordHash(password),
+    })
   }
-
-  const prismaUsersRepositories = new PrismaUsersRepositories()
-
-  prismaUsersRepositories.create({
-    name,
-    email,
-    password: await passwordHash(password),
-  })
 }
