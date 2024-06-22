@@ -11,6 +11,7 @@ interface AuthenticateResponse {
   user: User
 }
 export class AuthenticateUseCase {
+  // eslint-disable-next-line no-useless-constructor
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({

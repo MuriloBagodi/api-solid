@@ -1,8 +1,20 @@
+import { ResourceNotFoundError } from './../../services/errors_handlers/resource-not-found'
 import { Prisma, User } from '@prisma/client'
 import { UsersRepository } from '../usersRepository'
 
 export class InMemoryUsersRepository implements UsersRepository {
   public items: User[] = []
+
+  async findById(userId: string) {
+    const user = this.items.find((user) => user.id === userId)
+
+    if (!user) {
+      throw new ResourceNotFoundError()
+    }
+
+    return user
+  }
+
   async create(data: Prisma.UserCreateInput) {
     const user = {
       id: 'any_id',
@@ -26,11 +38,3 @@ export class InMemoryUsersRepository implements UsersRepository {
     return user
   }
 }
-
-// async findByEmail() {
-//   return null
-// },
-
-// async create(data) {
-//
-// },
