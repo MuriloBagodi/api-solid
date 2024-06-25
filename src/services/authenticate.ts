@@ -1,6 +1,6 @@
 import { UsersRepository } from '@/repositories/usersRepository'
 import { InvalidCredentialError } from './errors_handlers/invalid-credential-error'
-import { comparePassword } from '@/middleware/passwordHandler'
+import { comparePassword } from '@/utils/passwordHandler'
 import { User } from '@prisma/client'
 
 interface AuthenticateRequest {

@@ -1,4 +1,4 @@
-import { passwordHash } from '@/middleware/passwordHandler'
+import { passwordHash } from '@/utils/passwordHandler'
 import { UsersRepository } from '@/repositories/usersRepository'
 import { UserAlreadyExistsError } from './errors_handlers/user-already-exists-error'
 import { User } from '@prisma/client'

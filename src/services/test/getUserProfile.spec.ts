@@ -1,7 +1,7 @@
 import { GetUserProfileUseCase } from './../getUserProfile'
 import { expect, it, describe, beforeEach } from 'vitest'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repositorie'
-import { passwordHash } from '@/middleware/passwordHandler'
+import { passwordHash } from '@/utils/passwordHandler'
 import { ResourceNotFoundError } from '../errors_handlers/resource-not-found'
 
 let usersRepository: InMemoryUsersRepository

@@ -1,7 +1,7 @@
 import { expect, it, describe, beforeEach } from 'vitest'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repositorie'
 import { AuthenticateUseCase } from '../authenticate'
-import { passwordHash } from '@/middleware/passwordHandler'
+import { passwordHash } from '@/utils/passwordHandler'
 import { InvalidCredentialError } from '../errors_handlers/invalid-credential-error'
 
 let usersRepository: InMemoryUsersRepository
