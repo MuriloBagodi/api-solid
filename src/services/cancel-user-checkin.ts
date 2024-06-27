@@ -8,7 +8,7 @@ interface CancelCheckInUseCaseRequest {
 interface CancelCheckInUseCaseResponse {
   checkIn: CheckIn | null | undefined
 }
-export class CancelCheckInUseCaseUseCase {
+export class CancelCheckInUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private checkinsRepository: CheckInsRepository) {}
 

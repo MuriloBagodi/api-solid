@@ -8,7 +8,7 @@ interface FetchNearByGymsUseCaseRequest {
 interface FetchNearByGymsUseCaseResponse {
   gyms: Gym[]
 }
-export class FetchNearByGymsUseCaseUseCase {
+export class FetchNearByGymsUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private gymsRepository: GymsRepository) {}
 

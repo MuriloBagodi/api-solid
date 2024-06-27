@@ -10,7 +10,7 @@ interface ValidateCheckInUseCaseRequest {
 interface ValidateCheckInUseCaseResponse {
   checkIn: CheckIn
 }
-export class ValidateCheckInUseCaseUseCase {
+export class ValidateCheckInUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private checkinsRepository: CheckInsRepository) {}
 

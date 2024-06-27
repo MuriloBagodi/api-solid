@@ -1,15 +1,15 @@
 import { expect, it, describe, beforeEach } from 'vitest'
 import { InMemoryCheckInRepositorie } from '@/repositories/in-memory/in-memory-checkin-rpositorie'
-import { CancelCheckInUseCaseUseCase } from '../cancel-user-checkin'
+import { CancelCheckInUseCase } from '../cancel-user-checkin'
 
 let checkInRepository: InMemoryCheckInRepositorie
-let sut: CancelCheckInUseCaseUseCase
+let sut: CancelCheckInUseCase
 
 describe('Cancel Check-In Use Case', () => {
   beforeEach(async () => {
     checkInRepository = new InMemoryCheckInRepositorie()
     // sut -> System under test
-    sut = new CancelCheckInUseCaseUseCase(checkInRepository)
+    sut = new CancelCheckInUseCase(checkInRepository)
   })
 
   it('Should be able to cancel a check-in', async () => {

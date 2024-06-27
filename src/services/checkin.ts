@@ -15,7 +15,7 @@ interface MakeCheckInUseCaseRequest {
 interface MakeCheckInUseCaseResponse {
   checkIn: CheckIn
 }
-export class MakeCheckInUseCaseUseCase {
+export class MakeCheckInUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     private checkinsRepository: CheckInsRepository,

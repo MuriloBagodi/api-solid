@@ -8,7 +8,7 @@ interface SearchGymsUseCaseRequest {
 interface SearchGymsUseCaseResponse {
   gyms: Gym[]
 }
-export class SearchGymsUseCaseUseCase {
+export class SearchGymsUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private gymsRepository: GymsRepository) {}
 
