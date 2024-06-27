@@ -11,8 +11,8 @@ Gympass style app
   - [x] Deve ser possivel o usuario buscar academias proximas
   - [x] Deve ser possivel o usuario buscar academias por nome
   - [x] Deve ser possivel o usuario realizar check-in em uma academia
-  - [ ] Deve ser possivel o usuario cancelar um check-in
-  - [ ] Deve ser possivel validar o check-in de um usuario
+  - [x!] Deve ser possivel o usuario cancelar um check-in
+  - [x] Deve ser possivel validar o check-in de um usuario
   - [x] Deve ser possivil cadastrar uma academia
 
 ## RNs (Regras de negocio) - Deve sempre estar atrelado aos requisitos funcionais
