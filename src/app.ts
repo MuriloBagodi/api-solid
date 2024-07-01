@@ -5,6 +5,7 @@ import { env } from './env'
 import { authenticateRoutes } from './routes/Authenticate/authenticate.routes'
 import { profileRoutes } from './routes/Profile/profile.routes'
 import fastifyJwt from '@fastify/jwt'
+import { gymRoutes } from './routes/Gym/gym.routes'
 
 export const app = fastify()
 
@@ -14,6 +15,7 @@ app.register(fastifyJwt, {
 
 app.register(userRoutes, { prefix: 'user' })
 app.register(authenticateRoutes, { prefix: 'sessions' })
+app.register(gymRoutes, { prefix: 'gym' })
 
 /** Authenticated */
 app.register(profileRoutes, { prefix: 'me' })
