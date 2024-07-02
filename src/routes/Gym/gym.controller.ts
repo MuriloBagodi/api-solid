@@ -53,10 +53,10 @@ export async function searchGym(req: FastifyRequest, res: FastifyReply) {
 
 export async function nearByGym(req: FastifyRequest, res: FastifyReply) {
   const nearBySchema = z.object({
-    userLat: z.number().refine((value) => {
+    userLat: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 90
     }),
-    userLon: z.number().refine((value) => {
+    userLon: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 180
     }),
   })
