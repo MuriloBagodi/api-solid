@@ -6,6 +6,7 @@ import { authenticateRoutes } from './routes/Authenticate/authenticate.routes'
 import { profileRoutes } from './routes/Profile/profile.routes'
 import fastifyJwt from '@fastify/jwt'
 import { gymRoutes } from './routes/Gym/gym.routes'
+import { checkInRoutes } from './routes/CheckIn/checkin.routes'
 
 export const app = fastify()
 
@@ -15,10 +16,11 @@ app.register(fastifyJwt, {
 
 app.register(userRoutes, { prefix: 'user' })
 app.register(authenticateRoutes, { prefix: 'sessions' })
-app.register(gymRoutes, { prefix: 'gym' })
 
 /** Authenticated */
 app.register(profileRoutes, { prefix: 'me' })
+app.register(checkInRoutes, { prefix: 'checkin' })
+app.register(gymRoutes, { prefix: 'gym' })
 
 app.setErrorHandler((error, _, res) => {
   if (error instanceof ZodError) {
