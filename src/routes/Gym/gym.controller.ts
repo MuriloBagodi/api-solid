@@ -21,18 +21,16 @@ export async function createGym(req: FastifyRequest, res: FastifyReply) {
     req.body,
   )
 
-  const data = {
-    title,
-    description,
-    phone,
-    latitude,
-    longitude,
-  }
-
   try {
     const createGymUseCase = makeCreateGymUseCase()
-    const gym = await createGymUseCase.execute(data)
-    return res.status(201).send({ gym })
+    const { gym } = await createGymUseCase.execute({
+      title,
+      description,
+      phone,
+      latitude,
+      longitude,
+    })
+    return res.status(201).send(gym)
   } catch (err) {
     res.status(400).send({ error: err })
   }

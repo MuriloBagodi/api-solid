@@ -11,7 +11,7 @@ describe('Gym (e2e)', () => {
     await app.close()
   })
   it('Should be able to create a gym', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, 'ADMIN')
     const gymResponse = await request(app.server)
       .post('/gym')
       .set('Authorization', `Bearer ${token}`)
@@ -24,7 +24,7 @@ describe('Gym (e2e)', () => {
       })
 
     expect(gymResponse.statusCode).toEqual(201)
-    expect(gymResponse.body.gym.gym).toEqual(
+    expect(gymResponse.body).toEqual(
       expect.objectContaining({ title: 'academia legal' }),
     )
   })

@@ -18,14 +18,15 @@ export async function registerUser(req: FastifyRequest, res: FastifyReply) {
     name: string(),
     email: string().email(),
     password: string().min(8),
+    role: z.enum(['MEMBER', 'ADMIN']).default('MEMBER'),
   })
 
-  const { name, email, password } = userSchema.parse(req.body)
+  const { name, email, password, role } = userSchema.parse(req.body)
 
   try {
     const registerUseCase = makeRegisterUseCase()
 
-    await registerUseCase.execute({ name, email, password })
+    await registerUseCase.execute({ name, email, password, role })
   } catch (err) {
     if (err instanceof UserAlreadyExistsError) {
       return res.status(409).send({ message: err.message })

@@ -23,7 +23,7 @@ export async function createCheckIn(req: FastifyRequest, res: FastifyReply) {
   const createCheckInUseCase = makeCheckInUseCase()
   const checkIn = await createCheckInUseCase.execute({
     gymId,
-    userId: req.user.sub.toString(),
+    userId: req.user.sub,
     userLat: latitude,
     userLon: longitude,
   })
@@ -39,7 +39,7 @@ export async function historyCheckIn(req: FastifyRequest, res: FastifyReply) {
 
   const searchGymUseCase = makeFetchUserCheckInsUseCase()
   const { checkIns } = await searchGymUseCase.execute({
-    userId: req.user.sub.toString(),
+    userId: req.user.sub,
     page,
   })
   return res.status(200).send({ checkIns })
@@ -48,7 +48,7 @@ export async function historyCheckIn(req: FastifyRequest, res: FastifyReply) {
 export async function metricsCheckIn(req: FastifyRequest, res: FastifyReply) {
   const getUserMetricsUseCase = makeGetUserMetricsUseCase()
   const { checkInsCount } = await getUserMetricsUseCase.execute({
-    userId: req.user.sub.toString(),
+    userId: req.user.sub,
   })
   return res.status(200).send({ checkInsCount })
 }
