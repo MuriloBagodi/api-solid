@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'bun'
+          cache: 'npm'
       
-      - run: bun install --frozen-lockfile
+      - run: npm ci
 
-      - run: bun run test
+      - run: npm run test
