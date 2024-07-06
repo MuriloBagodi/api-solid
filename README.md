@@ -28,3 +28,4 @@ Gympass style app
   - [x] Os dados da aplicação precisão estar persistidos em um banco PgSql
   - [x] Todas as listas de dados devem estar paginadas com 20 items por pagina
   - [x] Usuario deve ser identificado por um JWT (Jason web token)
+  - [x] Usuario deve ser identificado por um JWT (Jason web token)
